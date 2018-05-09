@@ -40,7 +40,7 @@ public class VisualView extends JFrame{
     this.board = board;
     this.tttPanel = new TTTPanel(board);
     this.add(tttPanel, BorderLayout.CENTER);
-   // tttPanel.addMouseListener(new Example());
+   // tttPanel.addMouseListener(new MouseAction());
 
   }
 

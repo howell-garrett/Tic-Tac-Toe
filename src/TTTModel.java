@@ -72,7 +72,7 @@ public class TTTModel implements TTTOperations {
   }
 
   @Override
-  public void doComputerMove(Example counter) {
+  public void doComputerMove(MouseAction counter) {
     //irrelevant for this implementation
   }
 

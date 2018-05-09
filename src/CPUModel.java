@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,20 +17,15 @@ public class CPUModel extends TTTModel {
      * organizes the logic of how a computer player would decide how to play and
      * places the move accordingly.
      */
-    public void doComputerMove(Example ex) {
-        System.out.println("Com will win:" + this.nextMoveWins() );
-        System.out.println("player will win:" + this.nextMoveWins() );
-        System.out.println("open corner:" + this.isOpenCorner() + "\n");
-
-        System.out.println("\nCI: Before: " + columnIndex);
-        System.out.println("RI: Before: " + rowIndex);
-
+    public void doComputerMove(MouseAction ex) {
         if (this.nextMoveWins() && ts.equals(TileStatus.O)) {
             super.placeMove(TileStatus.O, rowIndex, columnIndex);
             ex.itterateCounter();
         } else if (this.nextMoveWins() && ts.equals(TileStatus.X)) {
             super.placeMove(TileStatus.O, rowIndex, columnIndex);
             ex.itterateCounter();
+        } else if (this.centerIsOpen()) {
+            super.placeMove(TileStatus.O, 2, 2);
         } else if ((this.isOpenCorner())) {
             super.placeMove(TileStatus.O, rowIndex, columnIndex);
             ex.itterateCounter();
@@ -39,10 +33,12 @@ public class CPUModel extends TTTModel {
             this.pickFirstOpen();
             ex.itterateCounter();
         }
-        System.out.println("\nCI: After: " + columnIndex);
-        System.out.println("RI: After" + rowIndex);
 
 
+    }
+
+    private boolean centerIsOpen() {
+        return board.get(1).get(1).equals(TileStatus.E);
     }
 
     private void pickFirstOpen() {

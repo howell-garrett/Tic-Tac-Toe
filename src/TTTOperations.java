@@ -37,5 +37,5 @@ public interface TTTOperations {
 
     public ArrayList<ArrayList<TileStatus>> getBoard();
 
-    public void doComputerMove(Example counter);
+    public void doComputerMove(MouseAction counter);
 }

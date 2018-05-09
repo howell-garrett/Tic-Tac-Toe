@@ -3,12 +3,12 @@ import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
-public class Example implements MouseListener {
+public class MouseAction implements MouseListener {
   TTTOperations model;
   int counter;
   VisualView view;
 
-  public Example(TTTOperations model, VisualView view) {
+  public MouseAction(TTTOperations model, VisualView view) {
     this.model = model;
     this.counter = 0;
     this.view = view;

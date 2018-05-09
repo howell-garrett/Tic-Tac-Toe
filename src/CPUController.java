@@ -17,6 +17,6 @@ public class CPUController implements IController {
         model.startGame(boardSize);
         this.view.getRestart().addActionListener(new Restart(this, view));
         this.view.makeVisible();
-        this.view.getTttPanel().addMouseListener(new Example(model, view));
+        this.view.getTttPanel().addMouseListener(new MouseAction(model, view));
     }
 }
