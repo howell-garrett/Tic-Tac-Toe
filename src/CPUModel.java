@@ -23,6 +23,9 @@ public class CPUModel extends TTTModel {
         System.out.println("player will win:" + this.nextMoveWins() );
         System.out.println("open corner:" + this.isOpenCorner() + "\n");
 
+        System.out.println("\nCI: Before: " + columnIndex);
+        System.out.println("RI: Before: " + rowIndex);
+
         if (this.nextMoveWins() && ts.equals(TileStatus.O)) {
             super.placeMove(TileStatus.O, rowIndex, columnIndex);
             ex.itterateCounter();
@@ -105,14 +108,15 @@ public class CPUModel extends TTTModel {
     private boolean columnAlmostComplete() {
         List<TileStatus> temp = new ArrayList<>();
         for (int i = 0; i < board.size(); i++) {
-            columnIndex = i + 1;
+
             for (int j = 0; j < board.size(); j++) {
+                columnIndex = i + 1;
                 temp.add(this.board.get(j).get(i));
 
             }
             if (this.almostAllTheSame(temp)) {
                 for (int j = 0; j < board.size(); j++) {
-                    if (board.get(i).get(j).equals(TileStatus.E)) {
+                    if (board.get(j).get(i).equals(TileStatus.E)) {
                         rowIndex = j + 1;
                     }
                 }
