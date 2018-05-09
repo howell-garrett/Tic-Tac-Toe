@@ -36,4 +36,6 @@ public interface TTTOperations {
     boolean columnComplete();
 
     public ArrayList<ArrayList<TileStatus>> getBoard();
+
+    public void doComputerMove(Example counter);
 }

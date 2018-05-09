@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TTTModel implements TTTOperations {
-  private ArrayList<ArrayList<TileStatus>> board;
+  protected ArrayList<ArrayList<TileStatus>> board;
 
   public TTTModel(ArrayList<ArrayList<TileStatus>> board) {
     this.board = board;
@@ -69,6 +69,11 @@ public class TTTModel implements TTTOperations {
   @Override
   public ArrayList<ArrayList<TileStatus>> getBoard() {
     return board;
+  }
+
+  @Override
+  public void doComputerMove(Example counter) {
+    //irrelevant for this implementation
   }
 
 
