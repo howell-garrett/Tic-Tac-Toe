@@ -22,6 +22,7 @@ public class CPUModel extends TTTModel {
         System.out.println("Com will win:" + this.nextMoveWins() );
         System.out.println("player will win:" + this.nextMoveWins() );
         System.out.println("open corner:" + this.isOpenCorner() + "\n");
+
         if (this.nextMoveWins() && ts.equals(TileStatus.O)) {
             super.placeMove(TileStatus.O, rowIndex, columnIndex);
             ex.itterateCounter();
@@ -35,8 +36,9 @@ public class CPUModel extends TTTModel {
             this.pickFirstOpen();
             ex.itterateCounter();
         }
-        System.out.println("CI: " + columnIndex);
-        System.out.println("RI: " + rowIndex);
+        System.out.println("\nCI: After: " + columnIndex);
+        System.out.println("RI: After" + rowIndex);
+
 
     }
 
@@ -103,16 +105,17 @@ public class CPUModel extends TTTModel {
     private boolean columnAlmostComplete() {
         List<TileStatus> temp = new ArrayList<>();
         for (int i = 0; i < board.size(); i++) {
+            columnIndex = i + 1;
             for (int j = 0; j < board.size(); j++) {
                 temp.add(this.board.get(j).get(i));
+
             }
             if (this.almostAllTheSame(temp)) {
                 for (int j = 0; j < board.size(); j++) {
                     if (board.get(i).get(j).equals(TileStatus.E)) {
-                        columnIndex = j;
+                        rowIndex = j + 1;
                     }
                 }
-                rowIndex = i;
                 this.setAlmostWinner(temp);
                 return true;
             } else {
@@ -132,8 +135,8 @@ public class CPUModel extends TTTModel {
         if (this.almostAllTheSame(temp)) {
             for (int i = 0; i < temp.size(); i++) {
                 if (temp.get(i).equals(TileStatus.E)) {
-                    rowIndex = i;
-                    columnIndex = i;
+                    rowIndex = i + 1;
+                    columnIndex = i + 1;
                 }
             }
             this.setAlmostWinner(temp);
@@ -149,8 +152,8 @@ public class CPUModel extends TTTModel {
         if (this.almostAllTheSame(temp)) {
             for (int i = 0; i < temp.size(); i++) {
                 if (temp.get(i).equals(TileStatus.E)) {
-                    rowIndex = i;
-                    columnIndex = i;
+                    rowIndex = i + 1;
+                    columnIndex = 3 - i;
                 }
             }
             this.setAlmostWinner(temp);
