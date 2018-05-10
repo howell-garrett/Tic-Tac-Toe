@@ -26,6 +26,7 @@ public class CPUModel extends TTTModel {
             ex.itterateCounter();
         } else if (this.centerIsOpen()) {
             super.placeMove(TileStatus.O, 2, 2);
+            ex.itterateCounter();
         } else if ((this.isOpenCorner())) {
             super.placeMove(TileStatus.O, rowIndex, columnIndex);
             ex.itterateCounter();
@@ -45,7 +46,7 @@ public class CPUModel extends TTTModel {
         for (int i = 0; i < board.size(); i++) {
             for (int j = 0; j < board.size(); j++) {
                 if (board.get(i).get(j).equals(TileStatus.E)) {
-                    super.placeMove(TileStatus.O, i, j);
+                    super.placeMove(TileStatus.O, i + 1, j + 1);
                     return;
                 }
             }

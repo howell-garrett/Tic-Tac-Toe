@@ -3,7 +3,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
-public class MouseAction implements MouseListener {
+public class  MouseAction implements MouseListener {
   TTTOperations model;
   int counter;
   VisualView view;
